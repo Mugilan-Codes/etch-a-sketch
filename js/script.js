@@ -1,3 +1,4 @@
+const root = document.documentElement;
 const gridContainer__div = document.querySelector('.container');
 
 const clearGrid = () => {
@@ -6,6 +7,7 @@ const clearGrid = () => {
 
 const createGrid = (size = 16) => {
   clearGrid();
+  root.style.setProperty('--grid-size', size);
   for (let i = 0; i < size; i++) {
     for (let j = 0; j < size; j++) {
       const div = document.createElement('div');
