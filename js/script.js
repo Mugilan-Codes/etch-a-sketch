@@ -7,10 +7,14 @@ const randomBackgorundButton__div = document.getElementById('random-bg');
 const MIN_SIZE = 1;
 const MAX_SIZE = 64;
 
+const fillColor = (e) => {
+  e.target.classList.add('passed-over');
+};
+
 const clearGrid = () => {
   gridContainer__div.innerHTML = '';
 
-  const size = Number(prompt('Enter grid size?'));
+  const size = Number(prompt('Enter grid size?', 16));
 
   createGrid(size);
 };
@@ -25,9 +29,7 @@ const createGrid = (size = 16) => {
       const div = document.createElement('div');
       div.setAttribute('class', 'grid-item');
       div.setAttribute('id', `${i}X${j}`);
-      div.addEventListener('mouseover', (e) =>
-        e.target.classList.add('passed-over')
-      );
+      div.addEventListener('mouseover', fillColor);
       gridContainer__div.appendChild(div);
     }
   }
