@@ -12,15 +12,19 @@ body {
 .container {
   /* width: 100%; */
   /* height: 100%; */
-  width: 500px;
-  height: 500px;
+  width: 100vmin;
+  height: 100vmin;
   border: 1rem solid black;
   display: grid;
   grid-template-columns: repeat(var(--grid-size), 1fr);
   /* grid-template-rows: repeat(var(--grid-size), 1fr); */
-  grid-gap: 0.5rem;
 }
 
 .grid-item {
-  background: blue;
+  /* background: blue; */
+  border: 0.1rem solid black;
+}
+
+.passed-over {
+  background: black;
 }
