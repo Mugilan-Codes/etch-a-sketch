@@ -1,15 +1,22 @@
 const root = document.documentElement;
 const gridContainer__div = document.querySelector('.container');
+const clearGridButton__div = document.getElementById('clear-grid');
+const blackBackgroundButton__div = document.getElementById('black-bg');
+const randomBackgorundButton__div = document.getElementById('random-bg');
+
+const MIN_SIZE = 1;
+const MAX_SIZE = 64;
 
 const clearGrid = () => {
   gridContainer__div.innerHTML = '';
+
+  const size = Number(prompt('Enter grid size?'));
+
+  createGrid(size);
 };
 
-//! Maximum size is 120
 const createGrid = (size = 16) => {
-  clearGrid();
-
-  size = size < 1 ? 1 : size > 120 ? 120 : size;
+  size = size < MIN_SIZE ? MIN_SIZE : size > MAX_SIZE ? MAX_SIZE : size;
   console.log({ size });
   root.style.setProperty('--grid-size', size);
 
@@ -27,3 +34,8 @@ const createGrid = (size = 16) => {
 };
 
 createGrid();
+
+//* Set the width of conatainer based on it's height
+gridContainer__div.style.width = `${gridContainer__div.clientHeight}px`;
+
+clearGridButton__div.addEventListener('click', clearGrid);
